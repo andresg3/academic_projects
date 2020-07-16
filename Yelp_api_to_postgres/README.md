@@ -58,4 +58,4 @@ You will need to add your own API_KEY in the `config.cnf` file
 ```
 
 ### Result example:
-![Alt text]()
+![Alt text](https://github.com/andresg3/academic_projects/blob/master/Yelp_api_to_postgres/Screenshot%20from%202020-07-16%2014-44-23.png)
