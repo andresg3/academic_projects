@@ -1,6 +1,5 @@
 from api_request import Request
 
-
 class BizSearch:
     def __init__(self, term, location, price=None):
         self._param = {'term': term, 'location': location}
