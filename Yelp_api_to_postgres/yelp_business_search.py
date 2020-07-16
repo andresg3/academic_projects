@@ -6,11 +6,22 @@ from bizsearch import BizSearch
 
 
 def main():
-    b = BizSearch(term="working cow", location="33437", price="")
-    b.get_results()
+    b = BizSearch(term="pizza", location="33437", price="")
+
 
     db = DatabaseDriver()
     db.setup()
+
+    # queries = [insert_business_table.format(*to_string(result)) for result in b.get_results()]
+    all_inserts = []
+    for result in b.get_results():
+        query = insert_business_table.format(*result)
+        all_inserts.append(query)
+
+    bulk_insert = "BEGIN; \n" + '\n'.join(all_inserts) + "\nCOMMIT;"
+    print(bulk_insert)
+    db.execute_query(bulk_insert)
+
 
     # all_rows = []
     # for biz in business_data['businesses']:
